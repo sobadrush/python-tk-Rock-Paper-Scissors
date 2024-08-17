@@ -59,10 +59,11 @@ class GAMING_INTERFACE:
         self.user_frame.place( x=0, y=self.GAME_HEIGHT*0.2 )
         
 
-        """
         self.__changeOnHover(self.user_scissors_btn, self.USER_BUTTON_LIGHT_COLOR,  self.USER_BUTTON_DARK_COLOR)
         self.__changeOnHover(self.user_stone_btn, self.USER_BUTTON_LIGHT_COLOR,  self.USER_BUTTON_DARK_COLOR)
         self.__changeOnHover(self.user_paper_btn,  self.USER_BUTTON_LIGHT_COLOR,  self.USER_BUTTON_DARK_COLOR)
+
+        """
         ####### END #######
         
         ####### robot_frame #######
@@ -162,6 +163,7 @@ class GAMING_INTERFACE:
         
         return result_frame, result
     """
+    
     def __click_scissors(self):
         messagebox.showinfo(title='showinfo', message='剪刀')
         pass
@@ -194,7 +196,7 @@ class GAMING_INTERFACE:
     def __click_paper(self):
         messagebox.showinfo(title='showinfo', message='布')
         pass
-        
+      
     """
     def __reset_func(self):
 
@@ -213,8 +215,8 @@ class GAMING_INTERFACE:
         self.robot_paper_label.place( x=580, y=400, anchor='center' )
 
         self.__update_scoreboard()
-
-
+    """
+    
     def __changeOnHover(self, button, colorOnHover, colorOnLeave):
 
         # color when touching mouse
@@ -225,6 +227,7 @@ class GAMING_INTERFACE:
         button.bind("<Leave>", func=lambda e: button.config(
             background=colorOnLeave, foreground=colorOnHover))
 
+    """
     def __update_scoreboard(self):
         
         user_score = "" # 玩家分數
