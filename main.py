@@ -156,29 +156,22 @@ class GAMING_INTERFACE:
         robot_choice = random.randint(0,2)
 
         if robot_choice == 0: # 剪刀
-            
             self.result.set('draw')
-            
             self.robot_paper_label.place_forget()
             self.robot_stone_label.place_forget()
 
         elif robot_choice == 1: # 石頭
-            
-            self.result.set('win')
-            
+            self.result.set('lose')
             self.robot_scissors_label.place_forget()
-            self.robot_stone_label.place_forget()
-
-            self.user_points += 1
+            self.robot_paper_label.place_forget()
+            self.robot_points += 1
 
         else: # 布
-            
-            self.result.set('lose') 
-            
-            self.robot_paper_label.place_forget()
+            self.result.set('win') 
             self.robot_scissors_label.place_forget()
+            self.robot_stone_label.place_forget()
+            self.user_points += 1
 
-            self.robot_points += 1
 
         self.result_frame.place( x=self.GAME_WIDTH*0.5, y=self.GAME_HEIGHT*0.2+15, anchor='n' )
 
@@ -194,29 +187,21 @@ class GAMING_INTERFACE:
         robot_choice = random.randint(0,2)
 
         if robot_choice == 0: # 剪刀
-
             self.result.set('win')
-            
             self.robot_paper_label.place_forget()
             self.robot_stone_label.place_forget()
-
             self.user_points += 1
         
         elif robot_choice == 1: # 石頭
-            
-            self.result.set('lose')
-            
+            self.result.set('draw')
             self.robot_scissors_label.place_forget()
-            self.robot_stone_label.place_forget()
-
-            self.robot_points += 1
+            self.robot_paper_label.place_forget()
         
         else: # 布
-            
-            self.result.set('draw')
-            
-            self.robot_paper_label.place_forget()
+            self.result.set('lose')
+            self.robot_stone_label.place_forget()
             self.robot_scissors_label.place_forget()
+            self.robot_points += 1
 
         self.result_frame.place( x=self.GAME_WIDTH*0.5, y=self.GAME_HEIGHT*0.2+15, anchor='n' )
 
@@ -232,29 +217,22 @@ class GAMING_INTERFACE:
         robot_choice = random.randint(0,2)
 
         if robot_choice == 0: # 剪刀
-            
             self.result.set('lose')
-        
             self.robot_paper_label.place_forget()
             self.robot_stone_label.place_forget()
-
             self.robot_points += 1
         
         elif robot_choice == 1: # 石頭
-        
-            self.result.set('draw')
-        
+            self.result.set('win')
             self.robot_scissors_label.place_forget()
-            self.robot_stone_label.place_forget()
+            self.robot_paper_label.place_forget()
+            self.user_points += 1
         
         else: # 布
-        
-            self.result.set('win')
-        
-            self.robot_paper_label.place_forget()
+            self.result.set('draw')
+            self.robot_stone_label.place_forget()
             self.robot_scissors_label.place_forget()
 
-            self.user_points += 1
     
         self.result_frame.place( x=self.GAME_WIDTH*0.5, y=self.GAME_HEIGHT*0.2+15, anchor='n' )
 
