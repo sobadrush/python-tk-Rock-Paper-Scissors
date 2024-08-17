@@ -28,6 +28,7 @@ python main.py
 按照屏幕上的指示進行遊戲。
 
 ## 遊戲畫面
+![Game Screenshot](/github_pics/執行畫面.png)
 
 ## 貢獻
 
