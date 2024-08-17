@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import messagebox
 
 import random
 
@@ -162,6 +163,7 @@ class GAMING_INTERFACE:
         return result_frame, result
     """
     def __click_scissors(self):
+        messagebox.showinfo(title='showinfo', message='剪刀')
         pass
         # # 防止重複點擊
         # if self.user_scissors_btn['state']!='normal' or self.user_paper_btn['state']!='normal' or self.user_stone_btn['state']!='normal': 
@@ -185,10 +187,12 @@ class GAMING_INTERFACE:
         # self.result_frame.place( x=self.GAME_WIDTH*0.5, y=self.GAME_HEIGHT*0.2+15, anchor='n' )
 
     def __click_stone(self):
+        messagebox.showinfo(title='showinfo', message='石頭')
         pass
         
 
     def __click_paper(self):
+        messagebox.showinfo(title='showinfo', message='布')
         pass
         
     """
