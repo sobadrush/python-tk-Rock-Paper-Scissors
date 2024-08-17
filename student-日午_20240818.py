@@ -37,11 +37,16 @@ class GAMING_INTERFACE:
         # 固定視窗大小
         root.resizable(False,False)
         ####### END #######
-        """
+        
         ####### IMAGE settings #######
         # 載入圖片
+        self.__load_img()
+        
+        # 測試圖片是否載入成功
+        Label(root, image=self.stone_img, width=300, height=300).place(x=100, y=100)
         ####### END #######
 
+        """
         ####### title_frame #######
         self.title_frame = self.__set_title_frame(root) # 設定標題
         # 放置標題
@@ -66,18 +71,19 @@ class GAMING_INTERFACE:
         ####### END #######
         """
         root.mainloop()
-"""
+        
     def __load_img(self): # 載入圖片
         
         self.user_img = PhotoImage( file=self.USER_IMG_PATH ).zoom(18).subsample(30)
         
         self.robot_img = PhotoImage(file=self.ROBOT_IMG_PATH).zoom(13).subsample(30)
         
-        self.scissors_img = #載入剪刀圖片
-        self.stone_img = #載入石頭圖片
-        self.paper_img = #載入布圖片
+        self.scissors_img =  PhotoImage( file=self.SCISSORS_IMG_PATH ).zoom(18).subsample(30) # 載入剪刀圖片
+        self.stone_img = PhotoImage( file=self.STONE_IMG_PATH ).zoom(18).subsample(30) # 載入石頭圖片
+        self.paper_img = PhotoImage( file=self.PAPER_IMG_PATH ).zoom(18).subsample(30) # 載入布圖片
         
 
+"""
     def __set_title_frame(self, root): # 設定標題
         
         title_frame = Frame( root, bg=self.TILTE_FRAME_BACKGROUND, width=self.GAME_WIDTH, height=self.GAME_HEIGHT*0.2, highlightthickness='5' ) # 設定標題的框架
