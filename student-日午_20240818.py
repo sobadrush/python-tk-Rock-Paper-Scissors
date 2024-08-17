@@ -1,4 +1,5 @@
 from tkinter import *
+
 import random
 
 class GAMING_INTERFACE:
@@ -46,17 +47,18 @@ class GAMING_INTERFACE:
         # Label(root, image=self.stone_img, width=300, height=300).place(x=100, y=100)
         ####### END #######
 
-        ####### title_frame #######
+        # ####### title_frame #######
         self.title_frame = self.__set_title_frame(root) # 設定標題
-        # 放置標題
-        self.title_frame.place( x=0, y=0 )
-        ####### END #######
+        self.title_frame.place( x=0, y=0 ) # 放置標題
+        # ####### END #######
         
-        """
-        ####### user_frame #######
-        self.user_frame, self.user_scissors_btn, self.user_stone_btn, self.user_paper_btn, self.user_points_var = # 設定玩家的畫面
+        # ####### user_frame #######
+        self.user_frame, self.user_scissors_btn, self.user_stone_btn, self.user_paper_btn, self.user_points_var = self.__set_user_frame(root) # 設定玩家的畫面
         # 放置玩家的畫面
+        self.user_frame.place( x=0, y=self.GAME_HEIGHT*0.2 )
+        
 
+        """
         self.__changeOnHover(self.user_scissors_btn, self.USER_BUTTON_LIGHT_COLOR,  self.USER_BUTTON_DARK_COLOR)
         self.__changeOnHover(self.user_stone_btn, self.USER_BUTTON_LIGHT_COLOR,  self.USER_BUTTON_DARK_COLOR)
         self.__changeOnHover(self.user_paper_btn,  self.USER_BUTTON_LIGHT_COLOR,  self.USER_BUTTON_DARK_COLOR)
@@ -75,13 +77,13 @@ class GAMING_INTERFACE:
         
     def __load_img(self): # 載入圖片
         
-        self.user_img = PhotoImage( file=self.USER_IMG_PATH ).zoom(18).subsample(30)
+        self.user_img = PhotoImage( file=self.USER_IMG_PATH ).zoom(13).subsample(30)
         
         self.robot_img = PhotoImage(file=self.ROBOT_IMG_PATH).zoom(13).subsample(30)
         
-        self.scissors_img =  PhotoImage( file=self.SCISSORS_IMG_PATH ).zoom(18).subsample(30) # 載入剪刀圖片
-        self.stone_img = PhotoImage( file=self.STONE_IMG_PATH ).zoom(18).subsample(30) # 載入石頭圖片
-        self.paper_img = PhotoImage( file=self.PAPER_IMG_PATH ).zoom(18).subsample(30) # 載入布圖片
+        self.scissors_img =  PhotoImage( file=self.SCISSORS_IMG_PATH ).zoom(10).subsample(30) # 載入剪刀圖片
+        self.stone_img = PhotoImage( file=self.STONE_IMG_PATH ).zoom(10).subsample(30) # 載入石頭圖片
+        self.paper_img = PhotoImage( file=self.PAPER_IMG_PATH ).zoom(10).subsample(30) # 載入布圖片
         
 
     def __set_title_frame(self, root): # 設定標題
@@ -93,7 +95,6 @@ class GAMING_INTERFACE:
         
         return title_frame
 
-"""
     def __set_user_frame(self,root):
         
         user_frame = Frame( root, bg=self.USER_FRAME_BACKGROUNG, width=self.GAME_WIDTH*0.5, height=self.GAME_HEIGHT*0.8, highlightthickness='3' ) # 設定玩家的框架
@@ -104,11 +105,15 @@ class GAMING_INTERFACE:
         user_scissors_btn = Button( user_frame, image=self.scissors_img, text= 'scissors', state=NORMAL, command=self.__click_scissors, relief='groove', background=self.USER_BUTTON_DARK_COLOR, activebackground=self.USER_BUTTON_LIGHT_COLOR, fg=self.USER_BUTTON_LIGHT_COLOR, activeforeground=self.USER_BUTTON_DARK_COLOR ) # 設定剪刀按鈕
         user_scissors_btn.place( x=140, y=400 ,anchor='center') # 放置剪刀按鈕
 
-        user_stone_btn = # 設定石頭按鈕
+        # 設定石頭按鈕
+        user_stone_btn = Button( user_frame, image=self.stone_img, text= 'scissors', state=NORMAL, command=self.__click_stone, relief='groove', background=self.USER_BUTTON_DARK_COLOR, activebackground=self.USER_BUTTON_LIGHT_COLOR, fg=self.USER_BUTTON_LIGHT_COLOR, activeforeground=self.USER_BUTTON_DARK_COLOR ) # 設定石頭按鈕
         # 放置石頭按鈕
+        user_stone_btn.place( x=360, y=400 ,anchor='center')
 
-        user_paper_btn = # 設定布按鈕
+        # 設定布按鈕
+        user_paper_btn = Button( user_frame, image=self.paper_img, text= 'paper', state=NORMAL, command=self.__click_paper, relief='groove', background=self.USER_BUTTON_DARK_COLOR, activebackground=self.USER_BUTTON_LIGHT_COLOR, fg=self.USER_BUTTON_LIGHT_COLOR, activeforeground=self.USER_BUTTON_DARK_COLOR ) # 設定布按鈕
         # 放置布按鈕
+        user_paper_btn.place( x=580, y=400 ,anchor='center')
 
         user_points_var = StringVar() # 設定玩家的分數
         user_points_var.set('') # 設定玩家的分數
@@ -117,6 +122,7 @@ class GAMING_INTERFACE:
 
         return user_frame, user_scissors_btn, user_stone_btn, user_paper_btn, user_points_var
 
+    """
     def __set_robot_frame(self,root):
         
         robot_frame = Frame( root, bg=self.ROBOT_FRAME_BACKGROUNG, width=self.GAME_WIDTH*0.5, height=self.GAME_HEIGHT*0.8, highlightthickness='3' ) # 設定電腦的框架
@@ -154,38 +160,38 @@ class GAMING_INTERFACE:
         # 放置重置按鈕
         
         return result_frame, result
-    
+    """
     def __click_scissors(self):
-        
-        # 防止重複點擊
-        if self.user_scissors_btn['state']!='normal' or self.user_paper_btn['state']!='normal' or self.user_stone_btn['state']!='normal': 
-            return 
-        else:
-            self.user_scissors_btn['state']=DISABLED
+        pass
+        # # 防止重複點擊
+        # if self.user_scissors_btn['state']!='normal' or self.user_paper_btn['state']!='normal' or self.user_stone_btn['state']!='normal': 
+        #     return 
+        # else:
+        #     self.user_scissors_btn['state']=DISABLED
                 
-        # 隨機產生電腦的選擇
-        robot_choice = random.randint(0,2)
+        # # 隨機產生電腦的選擇
+        # robot_choice = random.randint(0,2)
 
-        if robot_choice == 0: # 剪刀
+        # if robot_choice == 0: # 剪刀
             
 
-        elif robot_choice == 1: # 石頭
+        # elif robot_choice == 1: # 石頭
             
 
-        else: # 布
+        # else: # 布
             
 
 
-        self.result_frame.place( x=self.GAME_WIDTH*0.5, y=self.GAME_HEIGHT*0.2+15, anchor='n' )
+        # self.result_frame.place( x=self.GAME_WIDTH*0.5, y=self.GAME_HEIGHT*0.2+15, anchor='n' )
 
     def __click_stone(self):
-        
+        pass
         
 
     def __click_paper(self):
+        pass
         
-        
-
+    """
     def __reset_func(self):
 
         # 重置結果
@@ -204,7 +210,6 @@ class GAMING_INTERFACE:
 
         self.__update_scoreboard()
 
-        
 
     def __changeOnHover(self, button, colorOnHover, colorOnLeave):
 
@@ -225,7 +230,7 @@ class GAMING_INTERFACE:
 
         self.user_points_var.set(user_score)
         self.robot_points_var.set(robot_score)
-"""
+    """
 
 if __name__ == '__main__':
     game = GAMING_INTERFACE()
