@@ -46,7 +46,7 @@ class GAMING_INTERFACE:
         ####### user_frame #######
         self.user_frame, self.user_scissors_btn, self.user_stone_btn, self.user_paper_btn, self.user_points_var = self.__set_user_frame(root) # 設定玩家的畫面
         self.user_frame.place( x=0, y=self.GAME_HEIGHT*0.2 ) # 放置玩家的畫面
- 
+
         self.__changeOnHover(self.user_scissors_btn, self.USER_BUTTON_LIGHT_COLOR,  self.USER_BUTTON_DARK_COLOR)
         self.__changeOnHover(self.user_stone_btn, self.USER_BUTTON_LIGHT_COLOR,  self.USER_BUTTON_DARK_COLOR)
         self.__changeOnHover(self.user_paper_btn,  self.USER_BUTTON_LIGHT_COLOR,  self.USER_BUTTON_DARK_COLOR)
