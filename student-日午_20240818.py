@@ -146,9 +146,10 @@ class GAMING_INTERFACE:
         robot_paper_label.place( x=580, y=400, anchor='center' )
 
         robot_points_var = StringVar() # 設定電腦的分數
-        robot_points_var.set('') # 設定電腦的分數
-        robot_points_label =  None # 設定電腦的分數
+        robot_points_var.set('111111') # 設定電腦的分數
+        robot_points_label =  Label( robot_frame, bg=self.USER_FRAME_BACKGROUNG, textvariable=robot_points_var,font=('Arial',30), fg='black' ) # 設定電腦的分數
         # 放置電腦的分數
+        robot_points_label.place( x=self.GAME_WIDTH*0.25, y=250, anchor='n' ) # 放置玩家的分數
 
         return robot_frame, robot_scissors_label, robot_stone_label, robot_paper_label, robot_points_var
     
