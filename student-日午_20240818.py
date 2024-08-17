@@ -43,15 +43,16 @@ class GAMING_INTERFACE:
         self.__load_img()
         
         # 測試圖片是否載入成功
-        Label(root, image=self.stone_img, width=300, height=300).place(x=100, y=100)
+        # Label(root, image=self.stone_img, width=300, height=300).place(x=100, y=100)
         ####### END #######
 
-        """
         ####### title_frame #######
         self.title_frame = self.__set_title_frame(root) # 設定標題
         # 放置標題
+        self.title_frame.place( x=0, y=0 )
         ####### END #######
         
+        """
         ####### user_frame #######
         self.user_frame, self.user_scissors_btn, self.user_stone_btn, self.user_paper_btn, self.user_points_var = # 設定玩家的畫面
         # 放置玩家的畫面
@@ -83,16 +84,16 @@ class GAMING_INTERFACE:
         self.paper_img = PhotoImage( file=self.PAPER_IMG_PATH ).zoom(18).subsample(30) # 載入布圖片
         
 
-"""
     def __set_title_frame(self, root): # 設定標題
         
         title_frame = Frame( root, bg=self.TILTE_FRAME_BACKGROUND, width=self.GAME_WIDTH, height=self.GAME_HEIGHT*0.2, highlightthickness='5' ) # 設定標題的框架
         
-        title_label = Label( title_frame, bg='white', width=45, height=2, font=('Arial',40), fg='black', text='Paper Scissors Stone',highlightbackground='blue' ) # 設定標題的標籤
+        title_label = Label( title_frame, bg='white', width=45, height=2, font=('Arial',40), fg='black', text='Paper Scissors Stone', highlightbackground='blue' ) # 設定標題的標籤
         title_label.place( x=15, y=4 ) # 放置標題的標籤
         
         return title_frame
 
+"""
     def __set_user_frame(self,root):
         
         user_frame = Frame( root, bg=self.USER_FRAME_BACKGROUNG, width=self.GAME_WIDTH*0.5, height=self.GAME_HEIGHT*0.8, highlightthickness='3' ) # 設定玩家的框架
