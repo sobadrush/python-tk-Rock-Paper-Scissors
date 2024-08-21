@@ -61,11 +61,9 @@ class GAMING_INTERFACE:
         self.robot_frame.place( x=self.GAME_WIDTH*0.5, y=self.GAME_HEIGHT*0.2 ) # 放置電腦的畫面
         ####### END #######
 
-        '''
         ####### result_frame #######
-        self.result_frame,self.result = # 設定結果的畫面
+        self.result_frame,self.result = self.__set_result_frame(root) # 設定結果的畫面
         ####### END #######
-        '''
         root.mainloop()
     
     def __load_img(self): # 載入圖片
@@ -179,23 +177,26 @@ class GAMING_INTERFACE:
         return robot_frame, robot_scissors_label, robot_stone_label, robot_paper_label, robot_points_var
     
     
-    '''
     def __set_result_frame(self,root):
         
         result_frame = Frame( root, bg=self.RESULT_FRAME_BACKGROUNG, width=500, height=280, highlightthickness= '5', highlightbackground='blue', highlightcolor='blue' ) # 設定結果的框架
 
         result=StringVar() # 設定結果
         result.set('') # 設定結果
-        result_label = # 設定結果
-        # 放置結果  
+        result_label = Label( result_frame, bg=self.RESULT_FRAME_BACKGROUNG, font=('Arial', 30), fg='white', textvariable=result ) # 設定結果
+        # 放置結果
+        result_label.place( x=250, y=140, anchor='center' )
         
-        reset_btn = # 設定重置按鈕
+        # reset_btn = Button( result_frame, text='RESET', font=('Arial', 12), command=self.__reset_func, relief='groove', background=self.RESET_BUTTON_DARK_COLOR, activebackground=self.RESET_BUTTON_LIGHT_COLOR, fg=self.RESET_BUTTON_LIGHT_COLOR, activeforeground=self.RESET_BUTTON_DARK_COLOR ) # 設定重置按鈕
+        reset_btn = Button( result_frame, text='RESET', font=('Arial', 12), command=lambda e: None, relief='groove', background=self.RESET_BUTTON_DARK_COLOR, activebackground=self.RESET_BUTTON_LIGHT_COLOR, fg=self.RESET_BUTTON_LIGHT_COLOR, activeforeground=self.RESET_BUTTON_DARK_COLOR ) # 設定重置按鈕
         self.__changeOnHover(reset_btn, self.RESET_BUTTON_LIGHT_COLOR, self.RESET_BUTTON_DARK_COLOR) # 設定重置按鈕的hover效果
         # 放置重置按鈕
+        reset_btn.place( x=250, y=200, anchor='center' )
         
         return result_frame, result
 
 
+    '''
     def __reset_func(self):
 
         # 重置結果
