@@ -141,8 +141,31 @@ class GAMING_INTERFACE:
 
     # 當玩家點擊石頭按鈕時，執行的函數
     def __click_stone(self):
-        messagebox.showinfo(title='showinfo', message='石頭')
-        pass
+        # messagebox.showinfo(title='showinfo', message='石頭')
+        # 防止重複點擊
+        if self.user_scissors_btn['state']!='normal' or self.user_paper_btn['state']!='normal' or self.user_stone_btn['state']!='normal': 
+            return 
+        else:
+            self.user_scissors_btn['state']=DISABLED
+            
+        # 隨機產生電腦的選擇
+        robot_choice = random.randint(0,2)
+        
+        if robot_choice == 0: # 剪刀
+            self.result.set('win')
+            self.robot_stone_label.place_forget()
+            self.robot_paper_label.place_forget()
+            self.user_points += 1
+        elif robot_choice == 1: # 石頭
+            self.result.set('draw')
+            self.robot_scissors_label.place_forget()
+            self.robot_paper_label.place_forget()
+        else: # 布
+            self.result.set('lose')
+            self.robot_scissors_label.place_forget()
+            self.robot_stone_label.place_forget()
+        
+        self.result_frame.place( x=self.GAME_WIDTH*0.5, y=self.GAME_HEIGHT*0.2+15, anchor='n' )
 
     # 當玩家點擊布按鈕時，執行的函數
     def __click_paper(self):
