@@ -130,6 +130,7 @@ class GAMING_INTERFACE:
             self.result.set('lose')
             self.robot_scissors_label.place_forget()
             self.robot_paper_label.place_forget()
+            self.robot_points += 1 # 電腦得分
 
         else: # 布
             self.result.set('win')
@@ -155,7 +156,7 @@ class GAMING_INTERFACE:
             self.result.set('win')
             self.robot_stone_label.place_forget()
             self.robot_paper_label.place_forget()
-            self.user_points += 1
+            self.user_points += 1 # 玩家得分
         elif robot_choice == 1: # 石頭
             self.result.set('draw')
             self.robot_scissors_label.place_forget()
@@ -164,6 +165,7 @@ class GAMING_INTERFACE:
             self.result.set('lose')
             self.robot_scissors_label.place_forget()
             self.robot_stone_label.place_forget()
+            self.robot_points += 1 # 電腦得分
         
         self.result_frame.place( x=self.GAME_WIDTH*0.5, y=self.GAME_HEIGHT*0.2+15, anchor='n' )
 
@@ -183,11 +185,12 @@ class GAMING_INTERFACE:
             self.result.set('lose')
             self.robot_stone_label.place_forget()
             self.robot_paper_label.place_forget()
+            self.robot_points += 1 # 電腦得分
         elif robot_choice == 1: # 石頭
             self.result.set('win')
             self.robot_scissors_label.place_forget()
             self.robot_paper_label.place_forget()
-            self.user_points += 1
+            self.user_points += 1 # 玩家得分
         else: # 布
             self.result.set('draw')
             self.robot_scissors_label.place_forget()
@@ -270,6 +273,13 @@ class GAMING_INTERFACE:
         
         user_score = "" # 玩家分數
         robot_score = "" # 電腦分數
+
+        # 使用迴圈組合出分數 ★
+        for i in range(self.user_points):
+            user_score+="★"
+            
+        for i in range(self.robot_points):
+            robot_score+="★"
 
         self.user_points_var.set(user_score)
         self.robot_points_var.set(robot_score)
