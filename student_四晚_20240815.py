@@ -53,12 +53,15 @@ class GAMING_INTERFACE:
         self.__changeOnHover(self.user_stone_btn, self.USER_BUTTON_LIGHT_COLOR, self.USER_BUTTON_DARK_COLOR)
         self.__changeOnHover(self.user_paper_btn, self.USER_BUTTON_LIGHT_COLOR, self.USER_BUTTON_DARK_COLOR)
         ####### END #######
-        '''
+        
         ####### robot_frame #######
-        self.robot_frame, self.robot_scissors_label, self.robot_stone_label, self.robot_paper_label, self.robot_points_var = # 設定電腦的畫面
+        self.robot_frame, self.robot_scissors_label, self.robot_stone_label, \
+            self.robot_paper_label, self.robot_points_var = self.__set_robot_frame(root) # 設定電腦的畫面
         # 放置電腦的畫面
+        self.robot_frame.place( x=self.GAME_WIDTH*0.5, y=self.GAME_HEIGHT*0.2 ) # 放置電腦的畫面
         ####### END #######
 
+        '''
         ####### result_frame #######
         self.result_frame,self.result = # 設定結果的畫面
         ####### END #######
@@ -152,7 +155,6 @@ class GAMING_INTERFACE:
         button.bind("<Leave>", func=lambda e: button.config(
                 background=colorOnLeave, foreground=colorOnHover))
     
-    '''
     def __set_robot_frame(self,root):
         
         robot_frame = Frame( root, bg=self.ROBOT_FRAME_BACKGROUNG, width=self.GAME_WIDTH*0.5, height=self.GAME_HEIGHT*0.8, highlightthickness='3' ) # 設定電腦的框架
@@ -163,19 +165,21 @@ class GAMING_INTERFACE:
         robot_scissors_label = Label( robot_frame, image=self.scissors_img, text='scissors', background=self.ROBOT_BUTTON_COLOR ) # 設定電腦的剪刀
         robot_scissors_label.place( x=140, y=400, anchor='center' ) # 放置電腦的剪刀
         
-        robot_stone_label = # 設定電腦的石頭
-        # 放置電腦的石頭
+        robot_stone_label = Label( robot_frame, image=self.stone_img, text='stone', background=self.ROBOT_BUTTON_COLOR ) # 設定電腦的石頭
+        robot_stone_label.place( x=360, y=400, anchor='center' ) # 放置電腦的石頭
         
-        robot_paper_label = # 設定電腦的布
-        # 放置電腦的布
+        robot_paper_label = Label( robot_frame, image=self.paper_img, text='paper', background=self.ROBOT_BUTTON_COLOR ) # 設定電腦的布
+        robot_paper_label.place( x=580, y=400, anchor='center' ) # 放置電腦的布
 
         robot_points_var = StringVar() # 設定電腦的分數
         robot_points_var.set('') # 設定電腦的分數
-        robot_points_label =  # 設定電腦的分數
+        robot_points_label =  None # 設定電腦的分數
         # 放置電腦的分數
 
         return robot_frame, robot_scissors_label, robot_stone_label, robot_paper_label, robot_points_var
     
+    
+    '''
     def __set_result_frame(self,root):
         
         result_frame = Frame( root, bg=self.RESULT_FRAME_BACKGROUNG, width=500, height=280, highlightthickness= '5', highlightbackground='blue', highlightcolor='blue' ) # 設定結果的框架
