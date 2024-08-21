@@ -46,10 +46,11 @@ class GAMING_INTERFACE:
         ####### user_frame #######
         self.user_frame, self.user_scissors_btn, self.user_stone_btn, self.user_paper_btn, self.user_points_var = self.__set_user_frame(root)# 設定玩家的畫面
         # 放置玩家的畫面
- 
-        self.__changeOnHover(self.user_scissors_btn, self.USER_BUTTON_LIGHT_COLOR,  self.USER_BUTTON_DARK_COLOR)
-        self.__changeOnHover(self.user_stone_btn, self.USER_BUTTON_LIGHT_COLOR,  self.USER_BUTTON_DARK_COLOR)
-        self.__changeOnHover(self.user_paper_btn,  self.USER_BUTTON_LIGHT_COLOR,  self.USER_BUTTON_DARK_COLOR)
+        self.user_frame.place( x=0, y=self.GAME_HEIGHT*0.2 )
+
+        # self.__changeOnHover(self.user_scissors_btn, self.USER_BUTTON_LIGHT_COLOR,  self.USER_BUTTON_DARK_COLOR)
+        # self.__changeOnHover(self.user_stone_btn, self.USER_BUTTON_LIGHT_COLOR,  self.USER_BUTTON_DARK_COLOR)
+        # self.__changeOnHover(self.user_paper_btn,  self.USER_BUTTON_LIGHT_COLOR,  self.USER_BUTTON_DARK_COLOR)
         ####### END #######
         '''
         ####### robot_frame #######
@@ -90,13 +91,16 @@ class GAMING_INTERFACE:
         user_img_label = Label( user_frame, bg=self.USER_FRAME_BACKGROUNG, width=300, height=200, image=self.user_img, text='user image' ) # 設定玩家的圖片
         user_img_label.place( x=self.GAME_WIDTH*0.25, y=30, anchor='n' ) # 放置玩家的圖片
 
-        user_scissors_btn = Button( user_frame, image=self.scissors_img, text= 'scissors', state=NORMAL, command=self.__click_scissors, relief='groove', background=self.USER_BUTTON_DARK_COLOR, activebackground=self.USER_BUTTON_LIGHT_COLOR, fg=self.USER_BUTTON_LIGHT_COLOR, activeforeground=self.USER_BUTTON_DARK_COLOR ) # 設定剪刀按鈕
+        # user_scissors_btn = Button( user_frame, image=self.scissors_img, text= 'scissors', state=NORMAL, command= self.__click_scissors, relief='groove', background=self.USER_BUTTON_DARK_COLOR, activebackground=self.USER_BUTTON_LIGHT_COLOR, fg=self.USER_BUTTON_LIGHT_COLOR, activeforeground=self.USER_BUTTON_DARK_COLOR ) # 設定剪刀按鈕
+        user_scissors_btn = Button( user_frame, image=self.scissors_img, text= 'scissors', state=NORMAL, command= lambda : None, relief='groove', background=self.USER_BUTTON_DARK_COLOR, activebackground=self.USER_BUTTON_LIGHT_COLOR, fg=self.USER_BUTTON_LIGHT_COLOR, activeforeground=self.USER_BUTTON_DARK_COLOR ) # 設定剪刀按鈕
         user_scissors_btn.place( x=140, y=400 ,anchor='center') # 放置剪刀按鈕
 
-        user_stone_btn = Button( user_frame, image=self.stone_img, text='stone', state=NORMAL, command=self.__click_stone, relief='groove', background=self.USER_BUTTON_DARK_COLOR, activebackground=self.USER_BUTTON_LIGHT_COLOR, fg=self.USER_BUTTON_LIGHT_COLOR, activeforeground=self.USER_BUTTON_DARK_COLOR )# 設定石頭按鈕
+        # user_stone_btn = Button( user_frame, image=self.stone_img, text='stone', state=NORMAL, command=self.__click_stone, relief='groove', background=self.USER_BUTTON_DARK_COLOR, activebackground=self.USER_BUTTON_LIGHT_COLOR, fg=self.USER_BUTTON_LIGHT_COLOR, activeforeground=self.USER_BUTTON_DARK_COLOR )# 設定石頭按鈕
+        user_stone_btn = Button( user_frame, image=self.stone_img, text='stone', state=NORMAL, command=lambda: None, relief='groove', background=self.USER_BUTTON_DARK_COLOR, activebackground=self.USER_BUTTON_LIGHT_COLOR, fg=self.USER_BUTTON_LIGHT_COLOR, activeforeground=self.USER_BUTTON_DARK_COLOR )# 設定石頭按鈕
         user_stone_btn.place( x=360, y=400 ,anchor='center')# 放置石頭按鈕
 
-        user_paper_btn = Button( user_frame, image=self.paper_img, text='paper', state=NORMAL, command=self.__click_paper, relief='groove', background=self.USER_BUTTON_DARK_COLOR, activebackground=self.USER_BUTTON_LIGHT_COLOR, fg=self.USER_BUTTON_LIGHT_COLOR, activeforeground=self.USER_BUTTON_DARK_COLOR )# 設定布按鈕
+        # user_paper_btn = Button( user_frame, image=self.paper_img, text='paper', state=NORMAL, command=self.__click_paper, relief='groove', background=self.USER_BUTTON_DARK_COLOR, activebackground=self.USER_BUTTON_LIGHT_COLOR, fg=self.USER_BUTTON_LIGHT_COLOR, activeforeground=self.USER_BUTTON_DARK_COLOR )# 設定布按鈕
+        user_paper_btn = Button( user_frame, image=self.paper_img, text='paper', state=NORMAL, command=lambda: None, relief='groove', background=self.USER_BUTTON_DARK_COLOR, activebackground=self.USER_BUTTON_LIGHT_COLOR, fg=self.USER_BUTTON_LIGHT_COLOR, activeforeground=self.USER_BUTTON_DARK_COLOR )# 設定布按鈕
         user_paper_btn.place( x=580, y=400 ,anchor='center')# 放置布按鈕
 
         user_points_var = StringVar() # 設定玩家的分數
