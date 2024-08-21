@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import messagebox
 import random
 
 class GAMING_INTERFACE:
@@ -109,6 +110,7 @@ class GAMING_INTERFACE:
     
     # 當玩家點擊剪刀按鈕時，執行的函數
     def __click_scissors(self):
+        messagebox.showinfo(title='showinfo', message='剪刀')
         pass
         # # 防止重複點擊
         # if self.user_scissors_btn['state']!='normal' or self.user_paper_btn['state']!='normal' or self.user_stone_btn['state']!='normal': 
@@ -132,10 +134,12 @@ class GAMING_INTERFACE:
 
     # 當玩家點擊石頭按鈕時，執行的函數
     def __click_stone(self):
+        messagebox.showinfo(title='showinfo', message='石頭')
         pass
 
     # 當玩家點擊布按鈕時，執行的函數
     def __click_paper(self):
+        messagebox.showinfo(title='showinfo', message='布')
         pass
     
     '''
