@@ -91,16 +91,13 @@ class GAMING_INTERFACE:
         user_img_label = Label( user_frame, bg=self.USER_FRAME_BACKGROUNG, width=300, height=200, image=self.user_img, text='user image' ) # 設定玩家的圖片
         user_img_label.place( x=self.GAME_WIDTH*0.25, y=30, anchor='n' ) # 放置玩家的圖片
 
-        # user_scissors_btn = Button( user_frame, image=self.scissors_img, text= 'scissors', state=NORMAL, command= self.__click_scissors, relief='groove', background=self.USER_BUTTON_DARK_COLOR, activebackground=self.USER_BUTTON_LIGHT_COLOR, fg=self.USER_BUTTON_LIGHT_COLOR, activeforeground=self.USER_BUTTON_DARK_COLOR ) # 設定剪刀按鈕
-        user_scissors_btn = Button( user_frame, image=self.scissors_img, text= 'scissors', state=NORMAL, command= lambda : None, relief='groove', background=self.USER_BUTTON_DARK_COLOR, activebackground=self.USER_BUTTON_LIGHT_COLOR, fg=self.USER_BUTTON_LIGHT_COLOR, activeforeground=self.USER_BUTTON_DARK_COLOR ) # 設定剪刀按鈕
+        user_scissors_btn = Button( user_frame, image=self.scissors_img, text= 'scissors', state=NORMAL, command= self.__click_scissors, relief='groove', background=self.USER_BUTTON_DARK_COLOR, activebackground=self.USER_BUTTON_LIGHT_COLOR, fg=self.USER_BUTTON_LIGHT_COLOR, activeforeground=self.USER_BUTTON_DARK_COLOR ) # 設定剪刀按鈕
         user_scissors_btn.place( x=140, y=400 ,anchor='center') # 放置剪刀按鈕
 
-        # user_stone_btn = Button( user_frame, image=self.stone_img, text='stone', state=NORMAL, command=self.__click_stone, relief='groove', background=self.USER_BUTTON_DARK_COLOR, activebackground=self.USER_BUTTON_LIGHT_COLOR, fg=self.USER_BUTTON_LIGHT_COLOR, activeforeground=self.USER_BUTTON_DARK_COLOR )# 設定石頭按鈕
-        user_stone_btn = Button( user_frame, image=self.stone_img, text='stone', state=NORMAL, command=lambda: None, relief='groove', background=self.USER_BUTTON_DARK_COLOR, activebackground=self.USER_BUTTON_LIGHT_COLOR, fg=self.USER_BUTTON_LIGHT_COLOR, activeforeground=self.USER_BUTTON_DARK_COLOR )# 設定石頭按鈕
+        user_stone_btn = Button( user_frame, image=self.stone_img, text='stone', state=NORMAL, command=self.__click_stone, relief='groove', background=self.USER_BUTTON_DARK_COLOR, activebackground=self.USER_BUTTON_LIGHT_COLOR, fg=self.USER_BUTTON_LIGHT_COLOR, activeforeground=self.USER_BUTTON_DARK_COLOR )# 設定石頭按鈕
         user_stone_btn.place( x=360, y=400 ,anchor='center')# 放置石頭按鈕
 
-        # user_paper_btn = Button( user_frame, image=self.paper_img, text='paper', state=NORMAL, command=self.__click_paper, relief='groove', background=self.USER_BUTTON_DARK_COLOR, activebackground=self.USER_BUTTON_LIGHT_COLOR, fg=self.USER_BUTTON_LIGHT_COLOR, activeforeground=self.USER_BUTTON_DARK_COLOR )# 設定布按鈕
-        user_paper_btn = Button( user_frame, image=self.paper_img, text='paper', state=NORMAL, command=lambda: None, relief='groove', background=self.USER_BUTTON_DARK_COLOR, activebackground=self.USER_BUTTON_LIGHT_COLOR, fg=self.USER_BUTTON_LIGHT_COLOR, activeforeground=self.USER_BUTTON_DARK_COLOR )# 設定布按鈕
+        user_paper_btn = Button( user_frame, image=self.paper_img, text='paper', state=NORMAL, command=self.__click_paper, relief='groove', background=self.USER_BUTTON_DARK_COLOR, activebackground=self.USER_BUTTON_LIGHT_COLOR, fg=self.USER_BUTTON_LIGHT_COLOR, activeforeground=self.USER_BUTTON_DARK_COLOR )# 設定布按鈕
         user_paper_btn.place( x=580, y=400 ,anchor='center')# 放置布按鈕
 
         user_points_var = StringVar() # 設定玩家的分數
@@ -109,6 +106,38 @@ class GAMING_INTERFACE:
         user_points_label.place( x=self.GAME_WIDTH*0.25, y=250, anchor='n' ) # 放置玩家的分數
 
         return user_frame, user_scissors_btn, user_stone_btn, user_paper_btn, user_points_var
+    
+    # 當玩家點擊剪刀按鈕時，執行的函數
+    def __click_scissors(self):
+        pass
+        # # 防止重複點擊
+        # if self.user_scissors_btn['state']!='normal' or self.user_paper_btn['state']!='normal' or self.user_stone_btn['state']!='normal': 
+        #     return 
+        # else:
+        #     self.user_scissors_btn['state']=DISABLED
+                
+        # # 隨機產生電腦的選擇
+        # robot_choice = random.randint(0,2)
+
+        # if robot_choice == 0: # 剪刀
+            
+
+        # elif robot_choice == 1: # 石頭
+            
+
+        # else: # 布
+            
+
+        # self.result_frame.place( x=self.GAME_WIDTH*0.5, y=self.GAME_HEIGHT*0.2+15, anchor='n' )
+
+    # 當玩家點擊石頭按鈕時，執行的函數
+    def __click_stone(self):
+        pass
+
+    # 當玩家點擊布按鈕時，執行的函數
+    def __click_paper(self):
+        pass
+    
     '''
     def __set_robot_frame(self,root):
         
@@ -147,37 +176,7 @@ class GAMING_INTERFACE:
         # 放置重置按鈕
         
         return result_frame, result
-    
-    def __click_scissors(self):
-        
-        # 防止重複點擊
-        if self.user_scissors_btn['state']!='normal' or self.user_paper_btn['state']!='normal' or self.user_stone_btn['state']!='normal': 
-            return 
-        else:
-            self.user_scissors_btn['state']=DISABLED
-                
-        # 隨機產生電腦的選擇
-        robot_choice = random.randint(0,2)
 
-        if robot_choice == 0: # 剪刀
-            
-
-        elif robot_choice == 1: # 石頭
-            
-
-        else: # 布
-            
-
-
-        self.result_frame.place( x=self.GAME_WIDTH*0.5, y=self.GAME_HEIGHT*0.2+15, anchor='n' )
-
-    def __click_stone(self):
-        
-        
-
-    def __click_paper(self):
-        
-        
 
     def __reset_func(self):
 
