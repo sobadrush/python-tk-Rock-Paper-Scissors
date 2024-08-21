@@ -49,9 +49,9 @@ class GAMING_INTERFACE:
         # 放置玩家的畫面
         self.user_frame.place( x=0, y=self.GAME_HEIGHT*0.2 )
 
-        # self.__changeOnHover(self.user_scissors_btn, self.USER_BUTTON_LIGHT_COLOR,  self.USER_BUTTON_DARK_COLOR)
-        # self.__changeOnHover(self.user_stone_btn, self.USER_BUTTON_LIGHT_COLOR,  self.USER_BUTTON_DARK_COLOR)
-        # self.__changeOnHover(self.user_paper_btn,  self.USER_BUTTON_LIGHT_COLOR,  self.USER_BUTTON_DARK_COLOR)
+        self.__changeOnHover(self.user_scissors_btn, self.USER_BUTTON_LIGHT_COLOR, self.USER_BUTTON_DARK_COLOR)
+        self.__changeOnHover(self.user_stone_btn, self.USER_BUTTON_LIGHT_COLOR, self.USER_BUTTON_DARK_COLOR)
+        self.__changeOnHover(self.user_paper_btn, self.USER_BUTTON_LIGHT_COLOR, self.USER_BUTTON_DARK_COLOR)
         ####### END #######
         '''
         ####### robot_frame #######
@@ -142,6 +142,16 @@ class GAMING_INTERFACE:
         messagebox.showinfo(title='showinfo', message='布')
         pass
     
+    
+    def __changeOnHover(self, button, colorOnHover, colorOnLeave):
+        # color when touching mouse
+        button.bind("<Enter>", func=lambda e: button.config(
+                background=colorOnHover, foreground=colorOnLeave))
+    
+        # color when not touching mouse
+        button.bind("<Leave>", func=lambda e: button.config(
+                background=colorOnLeave, foreground=colorOnHover))
+    
     '''
     def __set_robot_frame(self,root):
         
@@ -200,17 +210,6 @@ class GAMING_INTERFACE:
 
         self.__update_scoreboard()
 
-        
-
-    def __changeOnHover(self, button, colorOnHover, colorOnLeave):
- 
-        # color when touching mouse
-        button.bind("<Enter>", func=lambda e: button.config(
-            background=colorOnHover,foreground=colorOnLeave))
-    
-        # color when not touching mouse
-        button.bind("<Leave>", func=lambda e: button.config(
-            background=colorOnLeave, foreground=colorOnHover))
 
     def __update_scoreboard(self):
         
