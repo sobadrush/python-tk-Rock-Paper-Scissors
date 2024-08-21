@@ -170,7 +170,7 @@ class GAMING_INTERFACE:
         robot_paper_label.place( x=580, y=400, anchor='center' ) # 放置電腦的布
 
         robot_points_var = StringVar() # 設定電腦的分數
-        robot_points_var.set('123') # 設定電腦的分數
+        robot_points_var.set('') # 設定電腦的分數
         robot_points_label =  Label( robot_frame, bg=self.ROBOT_FRAME_BACKGROUNG, textvariable=robot_points_var, font=('Arial', 30), fg='black' ) # 設定電腦的分數
         robot_points_label.place( x=self.GAME_WIDTH*0.25, y=250, anchor='n' ) # 放置電腦的分數
 
@@ -187,8 +187,8 @@ class GAMING_INTERFACE:
         # 放置結果
         result_label.place( x=250, y=140, anchor='center' )
         
-        # reset_btn = Button( result_frame, text='RESET', font=('Arial', 12), command=self.__reset_func, relief='groove', background=self.RESET_BUTTON_DARK_COLOR, activebackground=self.RESET_BUTTON_LIGHT_COLOR, fg=self.RESET_BUTTON_LIGHT_COLOR, activeforeground=self.RESET_BUTTON_DARK_COLOR ) # 設定重置按鈕
-        reset_btn = Button( result_frame, text='RESET', font=('Arial', 12), command=lambda e: None, relief='groove', background=self.RESET_BUTTON_DARK_COLOR, activebackground=self.RESET_BUTTON_LIGHT_COLOR, fg=self.RESET_BUTTON_LIGHT_COLOR, activeforeground=self.RESET_BUTTON_DARK_COLOR ) # 設定重置按鈕
+        reset_btn = Button( result_frame, text='RESET', font=('Arial', 12), command=self.__reset_func, relief='groove', background=self.RESET_BUTTON_DARK_COLOR, activebackground=self.RESET_BUTTON_LIGHT_COLOR, fg=self.RESET_BUTTON_LIGHT_COLOR, activeforeground=self.RESET_BUTTON_DARK_COLOR ) # 設定重置按鈕
+        # reset_btn = Button( result_frame, text='RESET', font=('Arial', 12), command=lambda e: None, relief='groove', background=self.RESET_BUTTON_DARK_COLOR, activebackground=self.RESET_BUTTON_LIGHT_COLOR, fg=self.RESET_BUTTON_LIGHT_COLOR, activeforeground=self.RESET_BUTTON_DARK_COLOR ) # 設定重置按鈕
         self.__changeOnHover(reset_btn, self.RESET_BUTTON_LIGHT_COLOR, self.RESET_BUTTON_DARK_COLOR) # 設定重置按鈕的hover效果
         # 放置重置按鈕
         reset_btn.place( x=250, y=200, anchor='center' )
@@ -196,7 +196,6 @@ class GAMING_INTERFACE:
         return result_frame, result
 
 
-    '''
     def __reset_func(self):
 
         # 重置結果
@@ -220,12 +219,11 @@ class GAMING_INTERFACE:
         
         user_score = "" # 玩家分數
         robot_score = "" # 電腦分數
-    
-        
 
         self.user_points_var.set(user_score)
         self.robot_points_var.set(robot_score)
-    '''
+    
+    
 if __name__ == '__main__':
     game = GAMING_INTERFACE()
     game.run()
